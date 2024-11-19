@@ -22,6 +22,6 @@ public class Bloc {
     @ManyToOne
     private Foyer foyer;
     @JsonIgnore
-    @OneToMany
+    @OneToMany(mappedBy = "bloc", cascade = CascadeType.ALL)
     private List<Chambre> chambres;
 }

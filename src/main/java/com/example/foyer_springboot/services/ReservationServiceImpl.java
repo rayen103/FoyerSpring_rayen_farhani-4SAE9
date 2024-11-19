@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class ReservationServiceImpl implements IReservationService{
 
-    ReservationRepository reservationRepository;
+     ReservationRepository reservationRepository;
     @Override
     public Reservation addReservation(Reservation reservation) {
         return reservationRepository.save(reservation);
@@ -35,4 +35,11 @@ public class ReservationServiceImpl implements IReservationService{
     public List<Reservation> findByAnneeUniversitaireBetween(Date d1, Date d2){
         return reservationRepository.findByAnneeUniversitaireBetween(d1,d2);
     }
+    @Override
+    public Reservation ajouterReservationAvecEtudiants(Reservation reservation) {
+        reservationRepository.save(reservation);
+        return reservation;
+    }
+
+
 }

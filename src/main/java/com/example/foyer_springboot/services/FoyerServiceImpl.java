@@ -31,4 +31,11 @@ public class FoyerServiceImpl implements IFoyerService {
     public Foyer updateFoyer(Foyer foyer) {
         return foyerRepository.save(foyer);
     }
+    @Override
+    public Foyer ajouterFoyerAvecBlocsAssociés(Foyer foyer) {
+        foyerRepository.save(foyer);
+        return foyer;
+    }
+
+
 }

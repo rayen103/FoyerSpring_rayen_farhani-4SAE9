@@ -11,4 +11,6 @@ public interface IBlocService {
     void deleteBloc(Long id);
     Bloc updateBloc(Bloc bloc);
     Bloc getBlocById(Long id);
-}
+    public Bloc  findBlocsByIdBloc(long idBloc);
+
+    }

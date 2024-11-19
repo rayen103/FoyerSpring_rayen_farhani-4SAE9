@@ -14,5 +14,7 @@ public interface IChambreService {
     List<Chambre> findAllByTypeC(TypeChambre tc);
     Chambre findByNumeroChambre(Long numeroChambre);
     List<Chambre> getChambresByBlocAndTypeC(Bloc bloc, TypeChambre typeChambre);
+    Chambre affecterChambreABloc(Long num, long idBloc);
+    public void desaffecterChambreDeBloc(Long num, Integer idBloc) ;
 
-}
+    }

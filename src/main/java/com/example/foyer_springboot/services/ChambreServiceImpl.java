@@ -3,6 +3,7 @@ package com.example.foyer_springboot.services;
 import com.example.foyer_springboot.entities.Bloc;
 import com.example.foyer_springboot.entities.Chambre;
 import com.example.foyer_springboot.enums.TypeChambre;
+import com.example.foyer_springboot.repositories.BlocRepository;
 import com.example.foyer_springboot.repositories.ChambreRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import java.util.List;
 public class ChambreServiceImpl implements IChambreService{
 
     ChambreRepository chambreRepository;
+    BlocRepository blocRepository;
 
     @Override
     public Chambre addChambre(Chambre chambre) {
@@ -63,4 +65,24 @@ public class ChambreServiceImpl implements IChambreService{
     public List<Chambre> findByBlocNameQuery(String name){
         return chambreRepository.findByBlocNameQuery(name);
     }
+    @Override
+    public Chambre affecterChambreABloc (Long num, long idBloc){
+        Chambre chambre= chambreRepository.findByNumeroChambre(num);
+        Bloc bloc= blocRepository.findBlocsByIdBloc(idBloc);
+        chambre.setBloc(bloc);
+        chambreRepository.save(chambre);
+        return chambre;
+
+    }
+    @Override
+    public void desaffecterChambreDeBloc(Long num, Integer idBloc) {
+        Chambre chambre = chambreRepository.findByNumeroChambre(num);
+
+        if (chambre != null && chambre.getBloc() != null && chambre.getBloc().getIdBloc().equals(Long.valueOf(idBloc))) {
+            chambre.setBloc(null);
+            chambreRepository.save(chambre);
+        }
+    }
+
+
 }

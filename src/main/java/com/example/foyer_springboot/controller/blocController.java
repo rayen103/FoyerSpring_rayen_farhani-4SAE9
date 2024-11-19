@@ -44,4 +44,10 @@ public class blocController {
     public Integer getByCapaciteBlocGreaterThan(@RequestParam("capacite") Long capacite){
         return serviceImpl.countByCapaciteBlocGreaterThan(capacite);
     }
+    @PostMapping("/affecter-chambres-bloc")
+    public Bloc affecterChambresABloc(@RequestParam("numChambre") List<Long> numChambre,
+                                      @RequestParam("idBloc") Long idBloc){
+        return  serviceImpl.affecterChambresABloc(numChambre,idBloc);
+    }
+
 }

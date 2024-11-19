@@ -10,4 +10,6 @@ public interface IReservationService {
     List<Reservation> getAllReservation();
     void deleteReservation(String id);
     Reservation updateReservation(Reservation reservation);
+     Reservation ajouterReservationAvecEtudiants ( Reservation reservation);
+
 }

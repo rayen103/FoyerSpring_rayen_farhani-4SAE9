@@ -16,6 +16,6 @@ public class Universite {
     private String nomUniversite;
     private String adresse;
     @JsonIgnore
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Foyer foyer;
 }
